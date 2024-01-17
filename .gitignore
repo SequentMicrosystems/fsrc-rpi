@@ -1,0 +1,17 @@
+# binary
+/fsrc
+# build directory
+/build/
+/add_modules.sh
+/gen_cli.sh
+
+# python build directories
+/python/__pycache__/
+/python/build/
+/python/dist/
+/python/docs/markdown/
+/python/docs/doctrees/
+/python/multiio.egg-info/
+
+# nvim session
+.s
