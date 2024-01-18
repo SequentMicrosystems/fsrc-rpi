@@ -29,3 +29,4 @@ If you clone the repository any update can be made with the following commands:
 ~/fsrc-rpi$ git pull
 ~/fsrc-rpi$ sudo make install
 ``` 
+## [FIRMWARE UPDATE](https://github.com/SequentMicrosystems/fsrc-rpi/tree/master/update)
