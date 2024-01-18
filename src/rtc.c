@@ -71,6 +71,9 @@ int doRTCSet(int argc, char *argv[])
 	}
 	buf[2] = i;
 	i = atoi(argv[5]);
+	if(i > 2000){
+		i -= 2000;
+	}
 	if(i < 0 || i > 99) {
 		printf("Invalid year!\n");
 		return ERR;

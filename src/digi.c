@@ -140,13 +140,13 @@ int digiCountReset(int dev, uint8_t ch) {
 }
 
 const CliCmdType CMD_DIGI_READ = {
-        "optrd",
+        "dird",
         2,
         &doDigiRead,
-        "  optrd            Read digicoupled inputs status\n",
-        "  Usage:           "PROGRAM_NAME" <id> optrd <channel>\n"
-        "  Usage:           "PROGRAM_NAME" <id> optrd\n",
-        "  Example:         "PROGRAM_NAME" 0 optrd 2; Read Status of Digital input ch #2 on Board #0\n"
+        "  dird            Read digital inputs status\n",
+        "  Usage:           "PROGRAM_NAME" <id> dird <channel>\n"
+        "  Usage:           "PROGRAM_NAME" <id> dird\n",
+        "  Example:         "PROGRAM_NAME" 0 dird 2; Read Status of Digital input ch #2 on Board #0\n"
 };
 int doDigiRead(int argc, char *argv[]) {
 	int dev = doBoardInit(atoi(argv[1]));
@@ -185,12 +185,12 @@ int doDigiRead(int argc, char *argv[]) {
 }
 
 const CliCmdType CMD_DIGI_EDGE_READ = {
-        "optedgerd",
+        "diedgerd",
         2,
         &doDigiEdgeRead,
-        "  optedgerd        Read digicoupled counting edges 0 - none; 1 - rising; 2 - falling; 3 - both\n",
-        "  Usage:           "PROGRAM_NAME" <id> optedgerd <channel>\n",
-        "  Example:         "PROGRAM_NAME" 0 optedgerd 2; Read counting edges of digicoupled channel #2 on Board #0\n"
+        "  diedgerd        Read digital inputs counting edges 0 - none; 1 - rising; 2 - falling; 3 - both\n",
+        "  Usage:           "PROGRAM_NAME" <id> diedgerd <channel>\n",
+        "  Example:         "PROGRAM_NAME" 0 diedgerd 2; Read counting edges of digicoupled channel #2 on Board #0\n"
 };
 int doDigiEdgeRead(int argc, char *argv[]) {
 	if(argc != 4) {
@@ -214,13 +214,13 @@ int doDigiEdgeRead(int argc, char *argv[]) {
 }
 
 const CliCmdType CMD_DIGI_EDGE_WRITE = {
-        "optedgewr",
+        "diedgewr",
         2,
         &doDigiEdgeWrite,
-        "  optedgewr        Set digicoupled channel counting edges  0- count disable;\n"
+        "  diedgewr        Set digital input channel counting edges  0- count disable;\n"
 	"                   1-count rising edges; 2 - count falling edges; 3 - count both edges\n",
-        "  Usage:           "PROGRAM_NAME" <id> optedgewr <channel> <edges> \n",
-        "  Example:         "PROGRAM_NAME" 0 optedgewr 2 1; Set Digital channel #2 on Board #0 to count rising edges\n"
+        "  Usage:           "PROGRAM_NAME" <id> diedgewr <channel> <edges> \n",
+        "  Example:         "PROGRAM_NAME" 0 diedgewr 2 1; Set Digital input channel #2 on Board #0 to count rising edges\n"
 };
 int doDigiEdgeWrite(int argc, char *argv[]) {
 	if( (argc != 5)) {
@@ -266,12 +266,12 @@ int doDigiEdgeWrite(int argc, char *argv[]) {
 
 
 const CliCmdType CMD_DIGI_CNT_READ = {
-        "optcntrd",
+        "dicntrd",
         2,
         &doDigiCntRead,
-        "  optcntrd         Read digicoupled inputs edges count for one channel\n",
-        "  Usage:           "PROGRAM_NAME" <id> optcntrd <channel>\n",
-        "  Example:         "PROGRAM_NAME" 0 optcntrd 2; Read contor of digi input #2 on Board #0\n"
+        "  dicntrd         Read digital inputs edges count for one channel\n",
+        "  Usage:           "PROGRAM_NAME" <id> dicntrd <channel>\n",
+        "  Example:         "PROGRAM_NAME" 0 dicntrd 2; Read contor of digi input #2 on Board #0\n"
 };
 int doDigiCntRead(int argc, char *argv[]) {
 	if(argc != 4) {
@@ -297,12 +297,12 @@ int doDigiCntRead(int argc, char *argv[]) {
 }
 
 const CliCmdType CMD_DIGI_CNT_RESET = {
-        "optcntrst",
+        "dicntrst",
         2,
         &doDigiCntReset,
-        "  optcntrst        Reset digicoupled inputs edges count for one channel\n",
-        "  Usage:           "PROGRAM_NAME" <id> optcntrst <channel>\n",
-        "  Example:         "PROGRAM_NAME" 0 optcntrst 2; Reset contor of digi input #2 on Board #0\n"
+        "  dicntrst        Reset digital inputs edges count for one channel\n",
+        "  Usage:           "PROGRAM_NAME" <id> dicntrst <channel>\n",
+        "  Example:         "PROGRAM_NAME" 0 dicntrst 2; Reset contor of digi input #2 on Board #0\n"
 };
 int doDigiCntReset(int argc, char *argv[]) {
 	if(argc != 4) {

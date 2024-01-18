@@ -20,7 +20,7 @@
 #define FET_CH_NO 8
 #define DIGI_CH_NO 4
 #define DIGI_CNT_SIZE 4
-#define OWB_CH_NO 16
+#define OWB_CH_NO 14
 #define OWB_TEMP_VAL_SIZE 2
 #define OWB_ROM_SIZE 8
 
