@@ -75,3 +75,32 @@ int doPumpWrite(int argc, char *argv[]) {
         return OK;
 }
 
+
+const CliCmdType CMD_PUMP_PRESCALER_WRITE = {
+        "fdivwr",
+        2,
+        &doPrescWrite,
+        "  fdivwr           Set the pump PWM frequency divider [0..65535], PWM freq = 64kHz/(divider + 1)\n",
+        "  Usage:           "PROGRAM_NAME" <id> fdivwr <value [0..65535]>\n",
+        "  Example:         "PROGRAM_NAME" 0 fdivwr 3  Set the pump pwm frequency to 16kHz \n"
+};
+int doPrescWrite(int argc, char *argv[]) {
+        if (argc != 4) {
+                return ARG_CNT_ERR;
+        }
+        int div = atoi(argv[3]);
+
+        int dev = doBoardInit(atoi(argv[1]));
+        if (dev <= 0) {
+                return ERR;
+        }
+        uint16_t aux = (uint16_t)div;
+        uint8_t buf[2];
+        memcpy(buf, &aux, 2);
+        if (OK != i2cMem8Write(dev, I2C_MEM_PUMP_PWM_PRESCALER, buf, 2)) {
+                printf("Fail to write!\n");
+                return ERR;
+        }
+        return OK;
+}
+
