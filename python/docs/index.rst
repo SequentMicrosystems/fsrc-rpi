@@ -27,6 +27,15 @@ or
 
     sudo pip3 install SMfsrc -U
 
+Local Installation
+==================
+
+.. code-block:: bash
+
+    git clone https://github.com/SequentMicrosystems/fsrc-rpi.git
+    cd ~/fsrc-rpi/python
+    sudo python setup.py install
+
 Initiate class
 ==============
 
