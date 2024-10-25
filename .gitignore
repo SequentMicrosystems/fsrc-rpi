@@ -6,12 +6,12 @@
 /gen_cli.sh
 
 # python build directories
-/python/__pycache__/
+__pycache__/
 /python/build/
 /python/dist/
 /python/docs/markdown/
 /python/docs/doctrees/
-/python/multiio.egg-info/
+/python/SMfsrc.egg-info/
 
 # nvim session
 .s
