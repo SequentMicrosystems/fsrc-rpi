@@ -14,9 +14,9 @@ with open("README.md", 'r') as f:
 
 from setuptools import setup, find_packages
 setup(
-    name='SMfsrc',
+    name='smfsrc',
     packages=find_packages(),
-    version='1.0.1',
+    version='1.0.2',
     license='MIT',
     description='Library to control Flagstaff Research Controller',
     long_description=long_description,
