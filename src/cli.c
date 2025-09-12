@@ -16,6 +16,9 @@
 #include "wdt.h"
 
 const CliCmdType *gCmdArray[] = {
+	&CMD_HELP,
+	&CMD_VERSION,
+	&CMD_GET_CARD_INFO,
 	&CMD_RTD_TEMP_READ,
 	&CMD_RTD_RES_READ,
 	&CMD_RTD_RES_CALIB,
@@ -28,8 +31,6 @@ const CliCmdType *gCmdArray[] = {
 	&CMD_DIGI_EDGE_READ,
 	&CMD_DIGI_CNT_READ,
 	&CMD_DIGI_CNT_RESET,
-	&CMD_HELP,
-	&CMD_VERSION,
 	&CMD_CAL_STATUS,
 	&CMD_FET_READ,
 	&CMD_FET_WRITE,

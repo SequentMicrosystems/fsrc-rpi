@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #include "help.h"
+#include "comm.h"
 #include "data.h"
 
 int generalHelp(void) {
@@ -71,5 +73,32 @@ int doVersion(int argc, char *argv[]) {
 	printf(PROGRAM_NAME" v%s ...\n", VERSION); 
 	return OK;
 };/*}}}*/
+
+const CliCmdType CMD_GET_CARD_INFO = {
+	"fver",
+	2,
+	&doBoard,
+        "  fver          Get the card firmware version\n",
+        "  Usage:           "PROGRAM_NAME" <stack> fver\n",
+        "  Example:         "PROGRAM_NAME" 0 fver \n"
+};
+int doBoard(int argc, char *argv[]) {
+	int dev = -1;
+	uint8_t buff[2];
+	if (argc != 3) {
+		return ARG_CNT_ERR;
+	}
+	dev = doBoardInit(atoi(argv[1]));
+	if (dev <= 0) {
+		return ERR;
+	}
+
+	if (OK != i2cMem8Read(dev, I2C_MEM_REVISION_MAJOR, buff, 2)) {
+		printf("Fail to read!\n");
+		return ERR;
+	}
+	printf("Firmware version %d.%02d\n",(int)buff[0], (int)buff[1] );
+	return OK;
+}
 
 // vi:fdm=marker

@@ -3,7 +3,7 @@
 
 #define CARD_NAME "Flagstaff-Research"
 #define PROGRAM_NAME "fsrc"
-#define VERSION "1.0.0"
+#define VERSION "1.0.1"
 
 #define SLAVE_OWN_ADDRESS_BASE 0x0c
 
