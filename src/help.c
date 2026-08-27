@@ -78,7 +78,7 @@ const CliCmdType CMD_GET_CARD_INFO = {
 	"fver",
 	2,
 	&doBoard,
-        "  fver          Get the card firmware version\n",
+        "  fver          	Get the card firmware version\n",
         "  Usage:           "PROGRAM_NAME" <stack> fver\n",
         "  Example:         "PROGRAM_NAME" 0 fver \n"
 };
@@ -101,4 +101,31 @@ int doBoard(int argc, char *argv[]) {
 	return OK;
 }
 
+const CliCmdType CMD_RESET = {
+	"rst",
+	2,
+	&doReset,
+        "  rst          	Reset the card\n",
+        "  Usage:           "PROGRAM_NAME" <stack> rst\n",
+        "  Example:         "PROGRAM_NAME" 0 rst \n"
+};
+
+int doReset(int argc, char *argv[]) {
+	int dev = -1;
+	uint8_t buff[2];
+	if (argc != 3) {
+		return ARG_CNT_ERR;
+	}
+	dev = doBoardInit(atoi(argv[1]));
+	if (dev <= 0) {
+		return ERR;
+	}
+
+	if (OK != i2cMem8Write(dev, 0xaa, buff, 0)) {
+		printf("Fail to write!\n");
+		return ERR;
+	}
+	printf("Reset command sent\n");
+	return OK;
+}
 // vi:fdm=marker

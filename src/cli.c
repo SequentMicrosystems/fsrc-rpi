@@ -19,6 +19,7 @@ const CliCmdType *gCmdArray[] = {
 	&CMD_HELP,
 	&CMD_VERSION,
 	&CMD_GET_CARD_INFO,
+	&CMD_RESET,
 	&CMD_RTD_TEMP_READ,
 	&CMD_RTD_RES_READ,
 	&CMD_RTD_RES_CALIB,
